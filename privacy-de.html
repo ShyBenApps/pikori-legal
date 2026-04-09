@@ -24,14 +24,35 @@
     a:hover {
       text-decoration: underline;
     }
-    .toplink {
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 24px;
-      display: inline-block;
+      flex-wrap: wrap;
+    }
+    .langswitch {
+      font-size: 14px;
+      color: #666;
+    }
+    .langswitch a {
+      color: #0b57d0;
+      text-decoration: none;
+    }
+    .langswitch a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <a class="toplink" href="index.html">← Zurück zur Übersicht</a>
+  <div class="topbar">
+    <a href="index.html">← Zurück zur Übersicht</a>
+    <div class="langswitch">
+      <a href="privacy-en.html">EN</a> |
+      <strong>DE</strong>
+    </div>
+  </div>
 
   <h1>Datenschutzerklärung für Pikori</h1>
   <p><strong>Zuletzt aktualisiert:</strong> 09.04.2026</p>
@@ -117,7 +138,7 @@
   </ul>
 
   <h2>10. Kontolöschung</h2>
-  <p>Du kannst die Löschung deines Kontos innerhalb der App beantragen.</p>
+  <p>Du kannst innerhalb der App die Löschung deines Kontos beantragen.</p>
   <p>Wenn deine Kontolöschung verarbeitet wird, löschen wir deine aktiven Kontodaten aus den Live-Systemen der App, einschließlich deines Profils und der damit verbundenen hochgeladenen Medien. Außerdem löschen wir das zugehörige Authentifizierungskonto.</p>
   <p>Bestimmte Informationen können vorübergehend oder in begrenzter Form erhalten bleiben, insbesondere:</p>
   <ul>
