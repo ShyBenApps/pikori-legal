@@ -24,14 +24,35 @@
     a:hover {
       text-decoration: underline;
     }
-    .toplink {
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 24px;
-      display: inline-block;
+      flex-wrap: wrap;
+    }
+    .langswitch {
+      font-size: 14px;
+      color: #666;
+    }
+    .langswitch a {
+      color: #0b57d0;
+      text-decoration: none;
+    }
+    .langswitch a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <a class="toplink" href="index.html">← Back to legal overview</a>
+  <div class="topbar">
+    <a href="index.html">← Back to legal overview</a>
+    <div class="langswitch">
+      <strong>EN</strong> |
+      <a href="terms-de.html">DE</a>
+    </div>
+  </div>
 
   <h1>Terms of Use for Pikori</h1>
   <p><strong>Last updated:</strong> 09.04.2026</p>
