@@ -23,6 +23,30 @@
     a:hover {
       text-decoration: underline;
     }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .langswitch {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+    }
+    .langswitch a {
+      color: #0b57d0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .langswitch a:hover {
+      text-decoration: underline;
+    }
+    .langswitch strong {
+      color: #111;
+    }
     .card {
       border: 1px solid #ddd;
       border-radius: 10px;
@@ -32,28 +56,198 @@
     .muted {
       color: #666;
     }
+    ul {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Pikori Legal</h1>
-  <p class="muted">Legal documents for Pikori by ShyBen Apps.</p>
+  <div class="topbar">
+    <div>
+      <h1 id="page-title" style="margin: 0;">Pikori Legal</h1>
+      <p id="page-subtitle" class="muted" style="margin: 8px 0 0 0;">
+        Legal documents for Pikori by ShyBen Apps.
+      </p>
+    </div>
 
-  <div class="card">
-    <h2>English</h2>
-    <ul>
-      <li><a href="privacy-en.html">Privacy Policy</a></li>
-      <li><a href="terms-en.html">Terms of Use</a></li>
-      <li><a href="community-en.html">Community Rules</a></li>
-    </ul>
+    <div class="langswitch" id="langswitch">
+      <a data-lang="de">DE</a> |
+      <strong>EN</strong> |
+      <a data-lang="es">ES</a> |
+      <a data-lang="fr">FR</a> |
+      <a data-lang="ja">JA</a> |
+      <a data-lang="pt_BR">PT_BR</a> |
+      <a data-lang="pt">PT</a> |
+      <a data-lang="ru">RU</a> |
+      <a data-lang="zh">ZH</a>
+    </div>
   </div>
 
   <div class="card">
-    <h2>Deutsch</h2>
+    <h2 id="section-title">English</h2>
     <ul>
-      <li><a href="privacy-de.html">Datenschutzerklärung</a></li>
-      <li><a href="terms-de.html">Nutzungsbedingungen</a></li>
-      <li><a href="community-de.html">Community-Regeln</a></li>
+      <li><a id="privacy-link" href="privacy.html">Privacy Policy</a></li>
+      <li><a id="terms-link" href="terms.html">Terms of Use</a></li>
+      <li><a id="community-link" href="community.html">Community Rules</a></li>
     </ul>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        htmlLang: "en",
+        pageTitle: "Pikori Legal",
+        pageSubtitle: "Legal documents for Pikori by ShyBen Apps.",
+        sectionTitle: "English",
+        privacyLabel: "Privacy Policy",
+        termsLabel: "Terms of Use",
+        communityLabel: "Community Rules",
+        privacyHref: "privacy.html",
+        termsHref: "terms.html",
+        communityHref: "community.html",
+      },
+      de: {
+        htmlLang: "de",
+        pageTitle: "Pikori Rechtliches",
+        pageSubtitle: "Rechtliche Dokumente für Pikori von ShyBen Apps.",
+        sectionTitle: "Deutsch",
+        privacyLabel: "Datenschutzerklärung",
+        termsLabel: "Nutzungsbedingungen",
+        communityLabel: "Community-Regeln",
+        privacyHref: "privacy-de.html",
+        termsHref: "terms-de.html",
+        communityHref: "community-de.html",
+      },
+      es: {
+        htmlLang: "es",
+        pageTitle: "Información legal de Pikori",
+        pageSubtitle: "Documentos legales de Pikori por ShyBen Apps.",
+        sectionTitle: "Español",
+        privacyLabel: "Política de Privacidad",
+        termsLabel: "Términos de Uso",
+        communityLabel: "Normas de la Comunidad",
+        privacyHref: "privacy-es.html",
+        termsHref: "terms-es.html",
+        communityHref: "community-es.html",
+      },
+      fr: {
+        htmlLang: "fr",
+        pageTitle: "Mentions légales de Pikori",
+        pageSubtitle: "Documents juridiques de Pikori par ShyBen Apps.",
+        sectionTitle: "Français",
+        privacyLabel: "Politique de confidentialité",
+        termsLabel: "Conditions d’utilisation",
+        communityLabel: "Règles de la communauté",
+        privacyHref: "privacy-fr.html",
+        termsHref: "terms-fr.html",
+        communityHref: "community-fr.html",
+      },
+      ja: {
+        htmlLang: "ja",
+        pageTitle: "Pikori 法的情報",
+        pageSubtitle: "ShyBen Apps による Pikori の法的文書です。",
+        sectionTitle: "日本語",
+        privacyLabel: "プライバシーポリシー",
+        termsLabel: "利用規約",
+        communityLabel: "コミュニティルール",
+        privacyHref: "privacy-ja.html",
+        termsHref: "terms-ja.html",
+        communityHref: "community-ja.html",
+      },
+      pt_BR: {
+        htmlLang: "pt-BR",
+        pageTitle: "Informações legais do Pikori",
+        pageSubtitle: "Documentos legais do Pikori por ShyBen Apps.",
+        sectionTitle: "Português (Brasil)",
+        privacyLabel: "Política de Privacidade",
+        termsLabel: "Termos de Uso",
+        communityLabel: "Regras da Comunidade",
+        privacyHref: "privacy-pt_BR.html",
+        termsHref: "terms-pt_BR.html",
+        communityHref: "community-pt_BR.html",
+      },
+      pt: {
+        htmlLang: "pt",
+        pageTitle: "Informação legal do Pikori",
+        pageSubtitle: "Documentos legais do Pikori pela ShyBen Apps.",
+        sectionTitle: "Português",
+        privacyLabel: "Política de Privacidade",
+        termsLabel: "Termos de Utilização",
+        communityLabel: "Regras da Comunidade",
+        privacyHref: "privacy-pt.html",
+        termsHref: "terms-pt.html",
+        communityHref: "community-pt.html",
+      },
+      ru: {
+        htmlLang: "ru",
+        pageTitle: "Юридическая информация Pikori",
+        pageSubtitle: "Юридические документы Pikori от ShyBen Apps.",
+        sectionTitle: "Русский",
+        privacyLabel: "Политика конфиденциальности",
+        termsLabel: "Условия использования",
+        communityLabel: "Правила сообщества",
+        privacyHref: "privacy-ru.html",
+        termsHref: "terms-ru.html",
+        communityHref: "community-ru.html",
+      },
+      zh: {
+        htmlLang: "zh",
+        pageTitle: "Pikori 法律信息",
+        pageSubtitle: "由 ShyBen Apps 提供的 Pikori 法律文件。",
+        sectionTitle: "中文",
+        privacyLabel: "隐私政策",
+        termsLabel: "使用条款",
+        communityLabel: "社区规则",
+        privacyHref: "privacy-zh.html",
+        termsHref: "terms-zh.html",
+        communityHref: "community-zh.html",
+      }
+    };
+
+    function renderLanguageSwitcher(currentLang) {
+      const order = ["de", "en", "es", "fr", "ja", "pt_BR", "pt", "ru", "zh"];
+      const container = document.getElementById("langswitch");
+
+      container.innerHTML = order.map((lang) => {
+        if (lang === currentLang) {
+          return `<strong>${lang}</strong>`;
+        }
+        return `<a data-lang="${lang}">${lang}</a>`;
+      }).join(" | ");
+
+      container.querySelectorAll("a[data-lang]").forEach((link) => {
+        link.addEventListener("click", () => {
+          setLanguage(link.dataset.lang);
+        });
+      });
+    }
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations.en;
+
+      document.documentElement.lang = t.htmlLang;
+      document.getElementById("page-title").textContent = t.pageTitle;
+      document.getElementById("page-subtitle").textContent = t.pageSubtitle;
+      document.getElementById("section-title").textContent = t.sectionTitle;
+
+      const privacyLink = document.getElementById("privacy-link");
+      privacyLink.textContent = t.privacyLabel;
+      privacyLink.href = t.privacyHref;
+
+      const termsLink = document.getElementById("terms-link");
+      termsLink.textContent = t.termsLabel;
+      termsLink.href = t.termsHref;
+
+      const communityLink = document.getElementById("community-link");
+      communityLink.textContent = t.communityLabel;
+      communityLink.href = t.communityHref;
+
+      renderLanguageSwitcher(lang);
+      localStorage.setItem("pikori_legal_lang", lang);
+    }
+
+    const savedLang = localStorage.getItem("pikori_legal_lang") || "en";
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
