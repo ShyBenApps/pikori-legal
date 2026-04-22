@@ -206,15 +206,28 @@
 
     function renderLanguageSwitcher(currentLang) {
       const order = ["de", "en", "es", "fr", "ja", "pt_BR", "pt", "ru", "zh"];
+      const labels = {
+        de: "DE",
+        en: "EN",
+        es: "ES",
+        fr: "FR",
+        ja: "JA",
+        pt_BR: "PT_BR",
+        pt: "PT",
+        ru: "RU",
+        zh: "ZH"
+      };
+    
       const container = document.getElementById("langswitch");
-
+    
       container.innerHTML = order.map((lang) => {
+        const label = labels[lang] || lang;
         if (lang === currentLang) {
-          return `<strong>${lang}</strong>`;
+          return `<strong>${label}</strong>`;
         }
-        return `<a data-lang="${lang}">${lang}</a>`;
+        return `<a data-lang="${lang}">${label}</a>`;
       }).join(" | ");
-
+    
       container.querySelectorAll("a[data-lang]").forEach((link) => {
         link.addEventListener("click", () => {
           setLanguage(link.dataset.lang);
